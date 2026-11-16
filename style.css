@@ -1,0 +1,1419 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Liter&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background-color: #DECFBB;
+    font-family: Montserrat, sans-serif;
+    margin: 0; /*Remove default margin */
+    padding: 0; 
+}
+
+header {
+    background-color: #2C1207;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-top: 15px;    /* Espaçamento em cima */
+    padding-bottom: 15px; /* Espaçamento embaixo */
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    color: #EFE3D1;
+    position: sticky; /*o header permanece no fluxo normal da página e fica preso ao topo durante a rolagem.*/
+    top: 0;
+    z-index: 100;
+}
+
+.fechar-menu {
+    display: none; /* Esconde o X no desktop */
+}
+
+/* Configura cada link individualmente */
+.nav-link {
+    color: #EFE3D1;
+    text-decoration: none;
+    margin-left: 0;
+}
+
+.links-navegacao {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/*links + carrinho */
+.menu-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/*botao cadastro + carrinho*/
+.acoes-header {
+    display: flex;
+    align-items: center;
+    justify-self: end; /* alinha o botao cadastro e carrinho individual na borda final*/
+    gap: 50px; /*O gap controla o espaçamento entre os elementos filhos de um contêiner Flexbox.*/
+}
+
+
+/* Controla o tamanho do carrinho e a distância dele */
+.carrinho {
+  width: 24px;       /* Força o carrinho a ficar pequeno e discreto (tamanho padrão de ícone) */
+  height: auto;      /* Mantém a proporção correta para não amassar a imagem */
+    margin: 0;
+    position: static;
+  
+}
+
+
+
+.carrinho:hover {
+  transform: scale(1.1); /* Aumenta o tamanho do carrinho em 10% */
+  transition: transform 0.3s ease; /* Faz a animação durar 0.3 segundos */
+}
+
+
+/* Configura a "caixa" que segura todo mundo junto */
+header nav {
+  display: grid;
+  gap: 20px;
+  align-items: center;/* Alinha todos na mesma altura */
+  grid-template-columns: 1fr auto 1fr; 
+  position: relative; /* Referência para posicionar o menu */
+  
+}
+
+.botao-cadastro {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    background-color: #EFE3D1;
+    color: #2C1207;
+    border: none;
+    padding: 8px 18px;
+    text-decoration: none;;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.icone-usuario{
+    display:none;
+}
+
+.botao-cadastro:hover {
+    background-color: #DECFBB;
+    color: #2C1207;
+    transition: background-color 0.3s ease; /* Faz a mudança de cor ser suave */
+}
+
+/* ----BANNER---- */
+.banner {
+    height: 550px; /*altura */
+    position: relative; /* Faz o banner servir de referência para os elementos posicionados, tipo eu conseguir colocar a baixa por cima da imagem */
+    display: flow-root; /* n ficar uma faixa em cima */
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center 25%;
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
+    url("imagens/fundohome.png");
+    
+}
+
+
+.banner h1 {
+    color: #EFE3D1;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;/*semibold */
+    font-size: 40px; 
+    max-width: 450px;
+    /*margin-left: 129px; /* MARGIN: Cria espaço por fora do elemento, afastando-o de outros elementos ou das bordas. */
+    margin-right: auto;
+}
+
+.conteudo-banner {
+    position: absolute;
+    left: 129px;
+    top: 140px;
+}
+
+.conteudo-banner a {
+    background-color: #EFE3D1;
+    color: #2C1207;
+    text-decoration: none;
+    display: inline-block; /* Permite que o link seja tratado como um bloco, mas ainda se comporte como um link */
+    padding: 12px 20px; /* Espaçamento interno: 12px em cima e embaixo, 20px nas laterais */
+    font-family: Montserrat, sans-serif;
+    display: inline-flex; /* Organiza o texto e a seta lado a lado */
+    align-items: center; /* Centraliza o texto e a seta verticalmente */
+    gap: 20px; /* Espaço entre o texto e a seta */
+    border-radius: 10px;
+     /* Deixa todas as mudanças fluidas em 0.3 segundos */
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.conteudo-banner a:hover {
+    background-color: #DECFBB;
+    color: #2C1207;
+    gap: 40px; /* Espaço entre o texto e a seta */
+    transition: gap 0.3s ease; /* Transição suave para o espaçamento */
+}
+
+.diferenciais {
+    position: absolute; /* Permite posicionar a faixa dentro do banner */
+    bottom: 0;          /* Encosta a faixa na parte inferior do banner */
+    left: 0;            /* Encosta na lateral esquerda */
+    width: 100%;        /* Faz a faixa ocupar toda a largura */
+    background-color: rgba(185, 139, 105, 0.65);
+    height: 40px; /* Define a altura da faixa */
+
+    display: flex; /* Coloca os três parágrafos lado a lado */
+    align-items: center; /* Centraliza os textos verticalmente */
+    justify-content: space-around; /* Distribui os textos pela largura da faixa */
+    color: #EFE3D1;
+    font-size: 14px;
+    
+}
+
+.diferenciais p:hover {
+    transition: color 0.9s ease; /* Transição suave de cor */
+    transform: scale(1.10); /* Aumenta a imagem em 10% */
+    cursor: default;
+    font-weight: 600; /* Deixa o texto mais grosso */
+}
+
+/* ----PRODUTOS---- */
+.produtos {
+    padding-top: 30px;    /* Espaçamento em cima */
+    max-width: 1260px; /* Largura máxima da seção */
+    width: 100%;       /* Ocupa o espaço disponível até 1440px */
+    margin: 0 auto;    /* Centraliza a seção horizontalmente */
+    margin-bottom: 50px; /* Espaçamento embaixo */
+}
+
+.produto-destaque {
+    display: flex; /* Coloca a imagem e as informações lado a lado */
+    align-items: center; /* Centraliza os dois verticalmente */
+    gap: 35px; /* Espaço entre a imagem e as informações */
+}
+
+.produto-destaque img {
+    width: 400px; /* Define a largura da imagem */
+    height: auto; /* Mantém a proporção original */
+    border-radius: 5px; /* Adiciona cantos arredondados à imagem */
+    /* A propriedade 'transition' faz o movimento ser suave e não seco */
+    transition: transform 0.3s ease; 
+}
+
+.produto-destaque img:hover {
+    transform: scale(1.10); /* Aumenta a imagem em 10% */
+    transform: translateY(-7px); /* Move 7 pixels para cima */
+}
+
+.informacoes-destaque button {
+    background-color: #2C1207;
+    color: #EFE3D1;
+    border: none;
+    padding: 8px 18px;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    border-radius: 10px;
+    display: flex;        /* Coloca o ícone e o texto lado a lado */
+    align-items: center;  /* Centraliza verticalmente */
+    gap: 10px;            /* Espaço entre o carrinho e o texto */
+}
+
+.informacoes-destaque button:hover {
+    background-color: #4A2516; /* Muda a cor do botão ao passar o mouse */
+    transition: background-color 0.3s ease; /* Transição suave de cor */
+}
+
+.informacoes-destaque button img {
+    width: 16px;  /* Define a largura do ícone do carrinho */
+    height: auto; /* Mantém a proporção original */
+}
+
+.informacoes-destaque h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 800; /* Semibold */
+    font-size: 30px;
+    margin-bottom: 10px; /* Espaço abaixo do título */
+
+    border-bottom: 1px solid #2C1207; /* Linha abaixo do título */
+    padding-bottom: 5px; /* Espaço entre o título e a linha */
+    width: fit-content;
+
+}
+.produtos-lista h2{
+    font-family: '  Montserrat', sans-serif;
+    font-weight: 200px; /* Regular */
+}
+
+.cards-container {
+    display: flex; /* Coloca os cards lado a lado */
+
+    justify-content: flex-start;  /* Alinha os cards à esquerda */
+    gap: 15px;           /* Espaço entre os cards */
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha se não houver espaço suficiente */
+    column-gap: 20px; /* Espaço entre os cards na horizontal */
+    row-gap: 28px; /* Espaço entre as linhas */
+
+}
+
+.produto-card {
+    width: 300px; /* Largura do retângulo */
+    background-color: #f2e5d2; /* Fundo bege */
+    border-radius: 10px; /* Cantos arredondados */
+    overflow: hidden; /* Impede que a imagem ultrapasse os cantos */
+    box-shadow: 0 2px 2px #888; /* Sombra embaixo */
+    transition: transform 0.3s ease; 
+}
+
+.produto-card:hover {
+    transform: translateY(-5px); /* Move o card 5px para cima */
+}
+ 
+.produto-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600; /* Semibold */
+    font-size: 24px;
+    margin: 12px 0; /* Espaço acima e abaixo do título */
+    padding-left: 20px; /* Espaço à esquerda do título */
+}
+.produto-card button {
+    position: relative; /* Permite posicionar o botão em relação ao card */
+    background-color: #2C1207;
+    color: #EFE3D1;
+    border: none;
+    width: calc(100% - 36px); /* Largura do botão: 100% do card menos 36px (18px de cada lado) */
+    padding: 5px; /*Espaçamento interno:4px*/
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-bottom: 12px; /* Espaço abaixo do botão */
+    margin-left: 18px;   /* Espaço à esquerda do botão */
+}
+
+.produto-card button:hover {
+    background-color: #4A2516; /* Muda a cor do botão ao passar o mouse */
+    transition: background-color 0.3s ease; /* Transição suave de cor */
+}
+
+.produto-card button img {
+    position: absolute; /* Permite posicionar o carrinho dentro do botão */
+    left: 18px; /* Distância da borda esquerda */
+    top: 50%; /* Posiciona no meio da altura */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+.filtros-produtos {
+    display: flex; /* Coloca os botões lado a lado */
+    justify-content: left; /* Centraliza os botões */
+    gap: 20px; /* Espaço entre os botões */
+    margin: 25px 0 35px; /* Espaço acima e abaixo */
+}
+.filtro {
+    background-color: #f2e5d2; /* Fundo bege */
+    color: #2c1207; /* Texto marrom */
+    border: 1px solid #cbbcac; /* Borda fina */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 5px 15px; /* Espaçamento interno */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;;
+    cursor: pointer; /* Mãozinha ao passar o mouse */
+}
+
+.cadastro-menu {
+    display: none; /* Esconde o botão no desktop */
+}
+
+/*------------NOSSA HISTÓRIA---------*/
+.nossa-historia {
+    background-color:#2C1207;
+    display: flex; /* Coloca a imagem e o texto lado a lado */
+    align-items: STRETCH; /* ESTICAR!!!a caixa da imagem acompanha a altura da parte do texto.*/
+    gap: 0px; /* Espaço entre a imagem e o texto */
+    max-width: auto; /* Largura máxima da seção */
+    margin: 0 auto; /* Centraliza a seção horizontalmente */
+    
+}
+
+.historia-imagem {
+    width: 45%; /* caixa da imagem ocupe 50% da largura da section */
+    flex-shrink: 0;
+     background-image: url("imagens/imghistoria2.png");
+    background-size: cover; /* Dá zoom para preencher toda a área */
+    background-position: center; /* Centraliza o enquadramento */
+}
+
+.historia-imagem img {
+    width: 100%; /* Faz a imagem ocupar toda a largura */
+    height: 800px; /* Mantém a proporção original */
+    display: block; /* Remove o pequeno espaço abaixo da imagem */
+    object-fit: cover; /* Preenche o espaço sem deformar a foto */
+    display: none; /* Esconde a imagem do HTML, pois agora ela está no fundo */
+}
+
+
+.historia-subtitulo {
+    display: flex; /* Coloca a linha e o texto lado a lado */
+    align-items: center; /* Alinha verticalmente */
+    gap: 10px; /* Espaço entre a linha e o texto */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* Semibold */
+    font-size: 16px;
+    color: #A87448;
+    margin-bottom: 10px; /* Espaço abaixo do subtítulo */
+}
+.historia-subtitulo::before {
+    content: ""; /* Cria um elemento vazio */
+    width: 50px; /* Comprimento da linha */
+    height: 1px; /* Espessura da linha */
+    background-color: #A87448; /* Cor dourada */
+}
+
+.historia-conteudo {
+    width: 55%;
+    padding: 80px;
+    margin: auto;
+    padding: clamp(25px, 5vw, 80px); /* Padding responsivo: mínimo 25px, ideal 5% da largura da tela e máximo 80px.  O espaçamento diminui junto com a tela, mas nunca fica menor que 25px nem maior que 80px*/
+    box-sizing: border-box; /* Inclui o padding dentro dos 55% */
+    min-width: 0; /* Permite que a caixa encolha */
+}
+
+.historia-conteudo h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600; /* Semibold */
+    font-size: 50px;
+    color: #EFE3D1;
+    margin-bottom: 15px; /* Espaço abaixo do título */
+}
+
+.historia-descricao {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 16px;
+    color: #EFE3D1;
+    line-height: 1.9; /* Espaçamento entre linhas */
+    margin-bottom: 30px; /* Espaço abaixo do texto */
+    border-bottom: 1px solid rgba(168, 116, 72, 0.5);
+    padding-bottom: 30px;
+}
+
+.historia-indicadores {
+    display: flex;
+    flex-wrap: wrap; /* Permite passar para outra linha */ 
+    justify-content: space-between;
+    gap: 20px; /* Diminui a distância entre os indicadores */
+}
+
+
+.indicador h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600; /* Semibold */
+    font-size: 40px;
+    color: #A87448;
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    margin-top: 0; /* Remove o espaço padrão acima dos números */
+    transition: transform 0.3s ease; 
+}
+
+.indicador h3:hover {
+    transform: scale(1.10); /* Aumenta o tamanho do número em 10% */
+}
+
+.indicador p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* Regular */
+    font-size: 16px;
+    color: #A87448;
+    line-height: 1.9; /* Espaçamento entre linhas */
+}
+
+
+/* ========== ÁREA DO CLIENTE ========== */
+
+/* Fundo da seção inteira */
+.area-cliente {
+    background-color: #E0D0BA;
+    padding: 40px 0;
+}
+
+/* Retângulo que contém os dois lados */
+.cliente-container {
+    display: flex;           /* Coloca os dois lados lado a lado */
+    max-width: 1260px;        /* Largura máxima do retângulo */
+    width: 90%;              /* Adapta a largura à tela */
+    min-height: 410px;       /* Altura mínima */
+    margin: 0 auto;          /* Centraliza o retângulo */
+    border-radius: 15px;     /* Arredonda os cantos */
+    overflow: hidden;        /* Mantém os fundos dentro dos cantos */
+}
+
+/* ========== LADO ESQUERDO ========== */
+
+.cliente-beneficios {
+    width: 43%;                 /* Ocupa 43% do contêiner */
+    background-color: #2C1207; /* Fundo marrom escuro */
+     padding: 50px clamp(20px, 4vw, 60px);             /* Espaçamento interno */
+    box-sizing: border-box;     /* Inclui padding na largura */
+}
+
+/* Estilo do selo com a coroa */
+.cliente-selo {
+    display: inline-flex;       /* Coloca ícone e texto lado a lado */
+    align-items: center;        /* Alinha verticalmente */
+    gap: 8px;                   /* Espaço entre ícone e texto */
+    background-color: #3C2722; /* Marrom mais claro */
+    padding: 8px 15px;          /* Espaço dentro do selo */
+    border-radius: 30px;        /* Formato arredondado */
+    margin-bottom: 45px;        /* Distância até o título */
+}
+
+/* Ícone da coroa */
+.cliente-selo img {
+    width: 17px; 
+    height: 17px;
+    object-fit: contain; /*Para que a imagem caiba inteiramente dentro do seu contêiner, mantendo a proporção original sem cortar ou distorcer o conteúdo */
+}
+
+/* Texto do selo */
+.cliente-selo span {
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Título Área do Cliente */
+.cliente-beneficios h2 {
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0 0 15px;
+}
+
+/* Parágrafo abaixo do título */
+.cliente-descricao {
+    color: #FFFFFF;
+    font-size: clamp(14px, 1.2vw, 18px);
+    line-height: 1.8; /* Espaçamento entre linhas */
+    margin: 0 0 50px; /* Remove o espaçamento padrão do parágrafo */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Contêiner dos três benefícios */
+.cliente-lista-beneficios {
+    display: flex;
+    flex-direction: column; /* Organiza os benefícios verticalmente */
+    gap: 25px;              /* Espaço entre cada benefício */
+    margin-top: px;       /* Distância em relação à descrição */
+}
+
+/* Cada benefício: ícone + texto */
+.cliente-beneficio {
+    display: flex;
+    align-items: center;    /* Centraliza ícone e texto verticalmente */
+    gap: 10px;
+}
+
+/* Ícones dos benefícios */
+.cliente-beneficio img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain; /*Para que a imagem caiba inteiramente dentro do seu contêiner, mantendo a proporção original sem cortar ou distorcer o conteúdo */
+    flex-shrink: 0;         /* Impede o ícone de encolher */
+}
+
+/* Textos dos benefícios */
+.cliente-beneficio span {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ========== LADO DIREITO ========== */
+
+.cliente-formulario {
+    width: 57%;
+    background-color: #EFE3D1;
+   padding: 50px clamp(20px, 5vw, 80px);
+    box-sizing: border-box; /* Inclui padding na largura, ajuda na responsividade */
+}
+
+/* Contêiner dos botões Entrar e Cadastrar */
+.cliente-abas {
+    display: flex;             /* Coloca os botões lado a lado */
+    background-color: #E2D2BF;
+    border-radius: 10px;
+    margin-bottom: 25px; /* Espaço abaixo dos botões */
+}
+
+/* Estilo comum aos dois botões */
+.cliente-abas button {
+    background-color: #E2D2BF;
+    flex: 1;                   /* Divide o espaço igualmente */
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #2C1207;
+    font-size: 16px;
+    cursor: pointer;           /* Mostra a mãozinha ao passar o mouse */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Aparência da aba que estiver selecionada no momento */
+.cliente-abas button.ativa {
+    background-color: #2C1207;
+    color: #FFFFFF;
+    
+}
+
+/* ========== CAMPOS DO FORMULÁRIO ========== */
+
+/* Organiza todos os campos */
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Cada conjunto de label + input */
+.campo-formulario {
+    display: flex;
+    flex-direction: column;    /* Label acima da caixa */
+    gap: 5px;
+}
+
+/* Nome dos campos */
+.campo-formulario label {
+    color: #5C3B29;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Caixa que contém ícone, input e, quando houver, olho */
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #C9B49E;
+    border-radius: 8px;
+    padding: 0 12px;
+    min-height: 42px;
+    box-sizing: border-box;
+}
+
+/* Ícone do lado esquerdo */
+.input-container > img {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Campo onde o usuário digita */
+.input-container input {
+    flex: 1;                  /* Ocupa o espaço disponível */
+    min-width: 0;
+    border: none;             /* Remove a borda padrão do input */
+    outline: none;            /* Remove o contorno padrão */
+    background: transparent;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #2C1207;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Cor do texto de exemplo dentro dos inputs */
+.input-container input::placeholder {
+    color: #B49A80;
+}
+
+/* Destaca a caixa quando o usuário seleciona o campo */
+.input-container:focus-within {
+    border-color: #8B6245;
+    outline: 2px solid rgba(139, 98, 69, 0.15);
+}
+
+/* Botão do olho */
+.mostrar-senha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+}
+
+/* Ícone do olho */
+.mostrar-senha img {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+}
+
+/* ========== BOTÃO CADASTRAR ========== */
+
+.btn-cadastrar {
+    width: 100%;
+    background-color: #2C1207;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    padding: 13px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+/* Efeito quando passa o mouse */
+.btn-cadastrar:hover {
+    background-color: #4A2516;
+}
+
+/* ========== LINK DE LOGIN ========== */
+
+.cliente-login {
+    text-align: center;
+    color: #8A6C55;
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+/* Link Entrar */
+.cliente-login a {
+    color: #2C1207;
+    font-weight: 600;
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Sublinhado quando passa o mouse */
+.cliente-login a:hover {
+    text-decoration: underline;
+}
+
+/*------------FOOTER---------*/
+.rodape {
+    background-color: #2C1207;
+    color: #EFE3D1;
+    padding: 40px 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+
+}
+.rodape-conteudo {
+    display: flex; /* Coloca os três blocos lado a lado */
+    justify-content: space-between; /* Afasta os blocos */
+    max-width: 1260px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.rodape-links {
+    display: flex;
+    flex-direction: column; /* Coloca os links verticalmente */
+    gap: 5px; /* Espaço entre os blocos de links */
+}
+
+.rodape-redes {
+    display: flex; /* Coloca os ícones lado a lado */
+    flex-direction: column; /* Coloca os ícones verticalmente */
+
+    gap: 5px; /* Espaço entre os ícones */
+
+}
+
+.rodape-links a {
+    color: #EFE3D1;
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.rodape-redes a {
+    color: #EFE3D1;
+    text-decoration: none; /* Remove o sublinhado */
+    display: flex; /* Coloca o ícone e o texto lado a lado */
+    align-items: center; /* Centraliza verticalmente o ícone e o texto */
+    gap: 6px; /* Espaçamento entre o ícone e o texto */
+}
+
+.rodape-bottom{
+    text-align: center; /* Centraliza o texto */
+    margin-top: 40px; /* Espaço acima do texto */
+    font-size: 12px; /* Tamanho da fonte */
+}
+
+.rodape-logo img {
+    width: 180px; /* Largura do logo */
+    height: auto; /* Mantém a proporção original */
+
+}
+.rodape-redes a img {
+    width: 16px; /* Padroniza a largura dos ícones */
+    height: 16px; /* Padroniza a altura */
+    object-fit: contain; /* Mantém a proporção da imagem */
+    flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+/* ========== CARRINHO LATERAL ========== */
+
+.overlay {
+  position: fixed; /* Fixa a posição na tela */
+  top: 0; /* Começa do topo da tela */
+  left: 0; /* Começa da esquerda da tela */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44, 18, 7, 0.6); /* Fundo marrom translúcido */
+  display: none; /* Inicialmente escondido */
+}
+
+.overlay.ativo {
+  display: block; /* Mostra o overlay quando ativo */
+}
+
+.carrinho-lateral {
+  position: fixed;
+  top: 0;
+  right: -380px; /* Escondido fora da tela */
+  width: 340px;
+  height: 100%;
+  background-color: #F2E5D2; /* Mesmo bege dos cards */
+  color: #2C1207;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.carrinho-lateral.aberto {
+  right: 0;
+}
+
+.carrinho-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #C9B49E;
+  padding-bottom: 15px;
+}
+
+.carrinho-topo h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  margin: 0;
+}
+
+
+#fechar-carrinho {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #2C1207;
+  cursor: pointer;
+}
+
+#lista-carrinho {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#lista-carrinho li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #DECFBB;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#lista-carrinho li button {
+  background-color: transparent;
+  color: #8B6245;
+  border: 1px solid #8B6245;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.carrinho-rodape {
+  border-top: 1px solid #C9B49E;
+  padding-top: 15px;
+}
+
+.btn-finalizar {
+  width: 100%;
+  background-color: #2C1207;
+  color: #EFE3D1;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modo-login #campo-nome,
+.modo-login #campo-confirmar-senha {
+    display: none;
+}
+
+.filtro.ativo {
+    background-color: #2C1207;
+    color: #FFFFFF;
+}
+
+/* -------- RESPONSIVIDADE -------- */
+/* Esconde o botão de menu no computador */
+.menu-mobile {
+    display: none;
+}
+
+/* Estilos aplicados em telas de até 768px */
+@media (max-width: 768px) {
+
+    header {
+        padding: 12px 20px;
+    }
+
+     /* Organiza os elementos do header */
+    header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+     /* Mostra o menu hambúrguer */
+    .menu-mobile {
+        display: block;
+        background: none;
+        border: none;
+        color: #EFE3D1;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    .fechar-menu {
+        display: block;/* Mostra o X no celular */
+        position: absolute; /* Permite posicionar o botão dentro do menu */
+        top: 20px; /* Distância do topo */
+        right: 20px; /* Distância da borda direita */
+        background: none; /* Remove o fundo */
+        border: none; /* Remove a borda */
+        color: #EFE3D1; /* Cor clara do X */
+        font-size: 28px; /* Tamanho do X */
+        cursor: pointer; /* Mostra a mãozinha ao passar o mouse */
+    }
+
+
+    /* Esconde a logo no celular */
+    header nav > img { /*imagens que são filhas diretas do nav, n estao numa div.*/
+        display: none;
+    }
+
+
+    .botao-cadastro{
+        background-color: transparent;
+        border:none;
+        padding:0;
+        box-shadow: none;
+        width:auto;
+        height:auto;
+
+
+    }
+
+    .botao-cadastro span {
+        display: none;
+    }
+
+    .acoes-header {
+        gap: 20px;
+    }
+
+    .icone-usuario{
+        display: block;
+        width: auto;
+        height: 22px;
+        transition: transform 0.3s ease; /* Suaviza o zoom */
+    }
+
+    .botao-cadastro:hover {
+    background: transparent; /* Remove o fundo do hover */
+    border-color: transparent; /* Remove a borda, se houver */
+    }
+
+    .botao-cadastro:hover .icone-usuario {
+    transform: scale(1.15); /* Aumenta o ícone em 15% */
+    }
+    
+
+    .carrinho{
+        height: 30px;
+        width:auto;
+    }
+
+    .menu-links {
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+    .conteudo-banner {
+        left: 30px;
+        right: 30px;
+        top: 190px;
+    }
+
+    .banner h1 {
+        font-size: 30px;
+        max-width: 330px;
+        line-height: 1.1;
+    }
+
+    .diferenciais p:last-child { /*texto "Ingredientes Naturais". some*/
+    display: none;
+    }
+
+    .diferenciais p:first-child { /*linha entre os diferenciais*/
+    border-right: 1px solid rgba(239, 227, 209, 0.7);
+    padding-right: 15px;
+    }
+
+    .diferenciais {
+    height: 50px;
+    justify-content: space-evenly;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+    .diferenciais p {
+    font-size: 12px;
+    text-align: center;
+    }
+
+    .produto-destaque {
+    background-color: #F2E5D2;
+    border-radius: 12px;
+    padding: 20px; /*cria espaço entre o conteúdo e as bordas do card.*/
+    margin: 15px 20px 30px; /*cria espaço externo de 15px em cima, 20px nas laterais e 30px embaixo.*/
+    gap: 15px;
+    box-sizing: border-box; /*inclui o padding no cálculo das dimensões do elemento.*/
+    }
+
+    /* ===== CESTA EM DESTAQUE NO CELULAR ===== */
+
+/* Caixa principal da cesta */
+.produto-destaque {
+    display: flex;
+    flex-wrap: wrap; /* Permite organizar os elementos em várias linhas */
+    align-items: center; /* Alinha os elementos verticalmente */
+    gap: 15px; /* Espaçamento entre os elementos */
+
+    background-color: #F2E5D2; /* Fundo bege claro */
+    border-radius: 12px; /* Arredonda os cantos */
+    padding: 20px; /* Espaçamento interno */
+    margin: 15px 20px 30px; /* Espaçamento externo */
+    box-sizing: border-box; /* Inclui o padding no cálculo da largura */
+    margin-top: 0; /* Remove a margem acima da cesta */
+}
+
+
+.informacoes-destaque { /*como retirar div .informacoes-destque, tratar os filhos dela como se fosse filho do produto-destaque*/
+    display: contents;
+}
+
+/* Título da cesta */
+.produto-destaque h2 {
+    order: 1; /* Coloca o título primeiro */
+    width: 100%; /* Faz o título ocupar uma linha inteira */
+    text-align: center; /* Centraliza o texto */
+    font-size: 23px;
+    margin: 0;
+    justify-self: center;
+}
+
+/* Imagem da cesta */
+.produto-destaque > img {
+    order: 2; /* Coloca a imagem depois do título */
+    width: 50%; /* Ocupa 40% da largura */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Descrição da cesta */
+.produto-destaque p {
+    order: 3; /* Fica depois da imagem, na mesma linha */
+    flex: 1; /* Ocupa o espaço restante */
+    min-width: 0; /* Permite que o texto se ajuste ao espaço */
+    font-size: clamp(9px, 2vw, 15px); /* Fonte aumenta conforme a tela, entre 11px e 15px */
+    line-height: 1.3; /* Espaçamento entre as linhas */
+    margin: 0;
+}
+
+/* Botão de adicionar ao carrinho */
+.produto-destaque button {
+    order: 4; /* Coloca o botão depois dos outros elementos */
+    margin: 0 auto; /* Centraliza o botão horizontalmente */
+    font-size: 12px;
+}
+
+.produto-destaque button {
+    flex-basis: 100%; /* Reserva uma linha inteira para o botão */
+    width: fit-content; /* Mantém o botão com largura do conteúdo */
+    justify-content: center;
+}
+
+.produtos {
+    padding-top: 20px; /* Diminui o espaço no início da seção */
+}
+
+.filtros-produtos {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar os filtros em linhas */
+    justify-content: center; /* Centraliza os filtros */
+    gap: 10px; /* Espaçamento entre os botões */
+    max-width: 320px; /* Limita a largura para caberem dois por linha */
+    margin: 15px auto 25px; /* Centraliza o conjunto */
+}
+
+.filtro {
+    font-size: 12px; /* Diminui a fonte no celular */
+    width: auto; /* Cada botão terá largura conforme seu texto */
+    padding: 8px 12px; /* Espaçamento interno do botão */
+    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+}
+
+.produtos-lista h2 {
+    text-align: center; /* Centraliza o título */
+    font-size: 22px; /* Ajusta o tamanho para o celular */
+    font-weight: 400; /* Peso normal da fonte */
+    margin-bottom: 15px; /* Distância entre título e filtros */
+}
+
+
+
+/* ===== CARDS DOS PRODUTOS NO CELULAR ===== */
+
+/* Contêiner que agrupa todos os cards */
+.cards-container {
+    display: flex; /* Coloca os cards lado a lado */
+    flex-wrap: wrap; /* Permite quebrar para a próxima linha */
+    gap: 12px; /* Espaçamento horizontal e vertical */
+    padding: 0 20px; /* Distância dos cards até as laterais */
+    box-sizing: border-box;
+    
+}
+
+/* Cada card individual */
+.produto-card {
+    width: calc(50% - 6px); /* Dois cards por linha, existe um gap de 12px entre eles, cada card ocupa metade da largura disponível, menos 6px, que é metade do espaço entre os cards.. */
+    box-sizing: border-box;
+}
+
+/* Imagem principal de cada produto */
+.produto-card > img {
+    display: block; /* Remove o pequeno espaço que imagens inline podem deixar */
+    width: 100%; /* Ocupa toda a largura do card */
+    aspect-ratio: 1 / 1; /* Mantém a área da imagem quadrada */
+    object-fit: cover; /* Preenche a área sem distorcer a imagem */
+}
+
+/* Nome do produto */
+.produto-card h3 {
+    font-size: 15px; /* Diminui o título no celular */
+    margin: 8px 0 6px; /* Espaço acima e abaixo */
+    padding-left: 10px; /* Afasta o texto da borda esquerda */
+    line-height: 1.2;
+}
+
+/* Botão de adicionar ao carrinho */
+.produto-card button {
+    width: calc(100% - 20px); /* Deixa 10px de espaço em cada lateral */
+    margin-left: 10px; /* Afasta da borda esquerda */
+    margin-bottom: 10px; /* Afasta da parte inferior */
+    padding: 3px 5px; /* Diminui a altura do botão */
+    font-size: 10px; /* Texto menor para caber no card */
+}
+
+/* Ícone do carrinho dentro do botão */
+.produto-card button img {
+    width: 14px; /* Diminui o ícone */
+    height: 14px;
+    left: 8px; /* Aproxima o ícone da borda esquerda do botão */
+}
+
+/* ===== NOSSA HISTÓRIA NO CELULAR ===== */
+
+.nossa-historia {
+    display: flex; /* Mantém a imagem e o texto lado a lado */
+    align-items: stretch; /* Faz as duas colunas terem a mesma altura */
+}
+
+.historia-imagem {
+    width: 25%; /* Imagem ocupa 25% da largura */
+    flex-shrink: 0; /* Impede que a coluna da imagem encolha */
+    background-position: center; /* Mantém o centro da foto visível */
+}
+
+.historia-conteudo {
+    width: 75%; /* Texto ocupa os outros 75% */
+    padding: 30px 15px; /* Reduz o espaço interno */
+    box-sizing: border-box; /* Inclui o padding dentro dos 75% */
+    min-width: 0; /* Permite que o conteúdo se ajuste */
+}
+
+.historia-subtitulo {
+    font-size: 11px; /* Diminui o texto NOSSA HISTÓRIA */
+}
+
+.historia-subtitulo::before {
+    width: 45px; /* Diminui a linha ao lado do subtítulo */
+    flex-shrink: 0; /* Impede a linha de encolher */
+}
+
+.historia-conteudo h2 {
+    font-size: 32px; /* Diminui o título principal */
+    line-height: 1.1; /* Aproxima as linhas do título */
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.historia-descricao {
+    font-size: 12px; /* Diminui a descrição */
+    line-height: 1.8; /* Controla o espaço entre as linhas */
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+}
+
+.historia-indicadores {
+    display: flex;
+    flex-wrap: wrap; /* Permite dividir os indicadores em linhas */
+    justify-content: center; /* Centraliza os indicadores */
+    column-gap: 25px;
+    row-gap: 20px;
+    text-align: center;
+}
+
+.indicador {
+    width: calc(50% - 13px); /* Dois indicadores por linha */
+}
+
+.indicador h3 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.indicador p {
+    font-size: 9px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ===== ÁREA DO CLIENTE NO CELULAR ===== */
+
+.cliente-container {
+    flex-direction: column; /* Coloca os benefícios acima do formulário */
+    width: 90%; /* Mantém espaço nas laterais */
+}
+
+.cliente-beneficios {
+    width: 100%; /* Ocupa toda a largura */
+    padding: 25px 20px; /* Reduz os espaços internos */
+}
+
+.cliente-formulario {
+    width: 100%; /* Ocupa toda a largura */
+    padding: 20px; /* Espaçamento interno do formulário */
+}
+/* ===== TEXTOS DA ÁREA DO CLIENTE ===== */
+
+.cliente-beneficios h2 {
+    font-size: clamp(24px, 4vw, 30px); /* Título varia entre 24px e 30px */
+}
+
+.cliente-descricao {
+    font-size: clamp(11px, 1.8vw, 14px); /* Descrição acompanha a largura da tela */
+    line-height: 1.6; /* Aproxima um pouco as linhas */
+}
+.cliente-selo span {
+    font-size: clamp(9px, 1.4vw, 11px);
+}
+
+.cliente-beneficio span {
+    font-size: clamp(10px, 1.6vw, 13px);
+    line-height: 1.5;
+}
+/* ===== FORMULÁRIO NO CELULAR ===== */
+
+.cliente-abas button {
+    font-size: clamp(11px, 1.8vw, 14px);
+}
+
+.campo-formulario label {
+    font-size: clamp(11px, 1.8vw, 13px);
+}
+
+.input-container input {
+    font-size: clamp(11px, 1.8vw, 13px);
+}
+
+.btn-cadastrar {
+    font-size: clamp(12px, 2vw, 14px);
+}
+
+.cliente-login {
+    font-size: clamp(10px, 1.6vw, 12px);
+}
+
+
+
+.cliente-selo {
+    margin-bottom: 15px; /* Diminui o espaço entre o selo e o título */
+}
+.cliente-beneficios h2 {
+    margin-bottom: 10px; /* Diminui o espaço abaixo do título */
+}
+
+.cliente-descricao {
+    margin-bottom: 15px; /* Diminui o espaço abaixo da descrição */
+}
+
+.cliente-lista-beneficios {
+    margin-top: 0; /* Remove o espaço extra acima da lista */
+    gap: 15px; /* Aproxima os três benefícios */
+}
+
+.cliente-beneficios {
+    padding: 20px; /* Diminui o espaço entre o conteúdo e as bordas */
+}
+
+/* ===== FOOTER NO CELULAR ===== */
+
+.rodape {
+    padding: 25px 15px; /* Reduz o espaço interno nas laterais */
+    font-size: 11px; /* Diminui os textos */
+}
+
+.rodape-conteudo {
+    display: grid; /* Organiza o rodapé em linhas e colunas */
+    grid-template-columns: 1fr 1fr; /* Cria duas colunas iguais */
+    gap: 20px; /* Espaço entre os blocos */
+}
+
+.rodape-logo img {
+    width: 120px; /* Reduz o logo no celular */
+}
+
+.rodape-pagamento img {
+    width: 25px; /* Diminui a largura dos ícones */
+    height: auto; /* Mantém a proporção original */
+}
+.rodape-logo {
+    grid-column: 1 / -1; /* Logo ocupa as duas colunas */
+    grid-row: 1;
+}
+
+.rodape-contato {
+    grid-column: 1; /* Primeira coluna */
+    grid-row: 2; /* Segunda linha */
+    min-width: 0;
+    overflow-wrap: anywhere; /* Evita que textos longos ultrapassem a coluna */
+}
+
+.rodape-redes {
+    grid-column: 2; /* Segunda coluna */
+    grid-row: 2; /* Fica ao lado do contato */
+}
+
+.rodape-links {
+    grid-column: 1;
+    grid-row: 3; /* Fica abaixo do contato */
+}
+
+.rodape-pagamento {
+    grid-column: 2;
+    grid-row: 3; /* Fica ao lado das informações */
+}
+
+/* ---------- MENU LATERAL ---------- */
+
+.menu-links {
+    position: fixed; /* Fixa o menu na tela */
+    top: 0; /* Começa no topo */
+    left: 0; /* Encosta na esquerda */
+    width: 75%; /* Ocupa 75% da largura */
+    max-width: 300px; /* Largura máxima */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    background-color: #2C1207;
+    z-index: 1000;
+
+    transform: translateX(-100%); /* Esconde à esquerda */
+    transition: transform 0.3s ease; /* Anima o movimento */
+}
+
+.menu-links.aberto {
+    transform: translateX(0); /* Mostra o menu */
+}
+
+.cadastro-menu {
+    display: block; /* Faz o link ocupar sua própria linha */
+    background-color: #EFE3D1; /* Fundo bege-claro */
+    color: #2C1207; /* Texto marrom-escuro */
+    padding: 12px 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Arredonda os cantos */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: 600; /* Deixa o texto um pouco mais forte */
+    margin: 70px 20px 0; /* Afasta do topo e das laterais */
+}
+
+.menu-links {
+    display: flex; /* Organiza os elementos internos */
+    flex-direction: column; /* Coloca os elementos um abaixo do outro */
+    align-items: stretch; /* Permite ocupar a largura disponível */
+    justify-content: flex-start; /* Mantém o conteúdo no topo */
+}
+
+.menu-links .links-navegacao {
+    display: flex;
+    flex-direction: column; /* Coloca os links na vertical */
+    align-items: flex-start; /* Alinha à esquerda */
+    justify-content: flex-start; /* Evita centralização */
+    gap: 20px; /* Espaço entre os links */
+    width: 100%; /* Ocupa a largura disponível */
+    box-sizing: border-box;
+    padding: 20px; /* Distância das bordas */
+    margin: 0;
+    padding: 35px 20px; /* 35px em cima e embaixo, 20px nas laterais */
+}
+
+
+
+   
+
+}
