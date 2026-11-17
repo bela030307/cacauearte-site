@@ -106,7 +106,7 @@ header nav {
     position: relative; /* eu estou dizendo tipo: Use este banner como referência para posicionar os elementos que estão dentro dele com position: absolute */
     background-repeat: no-repeat; /*impede que a imagem de fundo se repita quando não preencher todo o espaço disponível :)*/
     background-size: cover; /*preencher tudo*/
-    background-position: center;
+    background-position: center 25%;
     background-image:
     linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
     url("imagens/fundohome.png");
