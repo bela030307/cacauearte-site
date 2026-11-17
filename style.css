@@ -342,6 +342,7 @@ header nav {
     width: 100%; /* Ocupa toda a largura da caixa */
     height: 100%; /* Ocupa toda a altura da caixa */
     object-fit: cover; /* Preenche a área sem distorcer a imagem */
+    height:800px;
 }
 
 .historia-subtitulo {
