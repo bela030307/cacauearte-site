@@ -15,56 +15,102 @@ function fecharCarrinho() {
   overlay.classList.remove('ativo');
 }
 
-if (btnAbrir) btnAbrir.addEventListener('click', abrirCarrinho);
+// 1. Abre o carrinho
+btnAbrir.addEventListener('click', abrirCarrinho);
+// 2. Fecha o carrinho pelo botão X
 btnFechar.addEventListener('click', fecharCarrinho);
+// 3. Fecha o carrinho clicando no fundo escuro
 overlay.addEventListener('click', fecharCarrinho);
 
-// Conecta automaticamente todos os botões dos cards de produto
+
+// Seleciona todos os botões que estão dentro dos cards de produtos
 document.querySelectorAll('.produto-card button').forEach(botao => {
+  // Para cada botão encontrado, adiciona um evento de clique
   botao.addEventListener('click', () => {
+    // Encontra o card ao qual o botão clicado pertence
     const card = botao.closest('.produto-card');
+    // Procura o h3 dentro desse card e pega o nome do produto
     const nomeProduto = card.querySelector('h3').innerText;
+    // Chama a função que adiciona o produto ao carrinho
     adicionarAoCarrinho(nomeProduto);
+
   });
 });
 
-// Conecta o botão do produto destaque
+// Conecta o botão do produto em destaque
+
+//  botão que está dentro da seção do produto em destaque
 const btnDestaque = document.querySelector('.informacoes-destaque button');
-if (btnDestaque) {
+
+
+  // Quando o botão for clicado, executa a função abaixo
   btnDestaque.addEventListener('click', () => {
+    // Procura o h2 da seção de destaque e pega o nome do produto
     const nomeDestaque = document.querySelector('.informacoes-destaque h2').innerText;
+    // Chama a função para adicionar esse produto ao carrinho
     adicionarAoCarrinho(nomeDestaque);
   });
-}
 
+
+
+// Função responsável por adicionar um produto ao carrinho
 function adicionarAoCarrinho(nome) {
+  // Adiciona o nome do produto ao final do array carrinho
   carrinho.push(nome);
+  // Atualiza a lista de produtos exibida no carrinho
   atualizarCarrinho();
+  // Abre o carrinho lateral automaticamente
   abrirCarrinho();
 }
 
+
+// Função responsável por remover um produto do carrinho
 function removerDoCarrinho(index) {
+  // Remove 1 produto do array na posição indicada pelo index
   carrinho.splice(index, 1);
+  // Atualiza a lista após remover o produto
   atualizarCarrinho();
 }
 
+
+// Função responsável por atualizar os produtos exibidos no carrinho
 function atualizarCarrinho() {
+  // Seleciona a lista onde os produtos serão exibidos
   const lista = document.getElementById('lista-carrinho');
+  // Seleciona o elemento que mostra a quantidade de itens no rodapé
   const contagemRodape = document.getElementById('total-itens');
-
+  // Limpa a lista HTML antes de mostrar os produtos atualizados
   lista.innerHTML = '';
-
+  
+  
+  // Percorre todos os produtos do array carrinho
+  // nomeProduto representa o nome e index representa sua posição no array
   carrinho.forEach((nomeProduto, index) => {
+    // Cria um novo elemento <li> para representar o produto
     const li = document.createElement('li');
+    // Adiciona ao <li> o nome do produto e um botão para removê-lo
+    // ${nomeProduto} insere o nome do produto!!!
+    // ${index} indica qual posição será removida ao clicar no botão
     li.innerHTML = `
       <span>${nomeProduto}</span>
       <button onclick="removerDoCarrinho(${index})">Remover</button>
     `;
+    // Adiciona o <li> criado dentro da lista do carrinho
     lista.appendChild(li);
   });
 
+  /*EXEMPLO: <ul id="lista-carrinho">
+    <li>
+        <span>Chocolate Branco</span>
+        <button onclick="removerDoCarrinho(0)">Remover</button>
+    </li>
+  </ul>*/
+
+  
+  // Atualiza a quantidade de itens usando o tamanho do array
   contagemRodape.innerText = carrinho.length;
 }
+
 
 
 /*------MENU SANDUICHE----------*/
